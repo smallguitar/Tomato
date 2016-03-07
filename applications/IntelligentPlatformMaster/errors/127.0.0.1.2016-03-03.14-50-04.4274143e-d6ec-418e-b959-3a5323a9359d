@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S'<class \'_mysql_exceptions.OperationalError\'> (1050, "Table \'auth_user\' already exists")'
+p3
+sS'layer'
+p4
+S'/root/git/web2py/applications/IntellegentPlatformMaster/models/db.py'
+p5
+sS'code'
+p6
+S"# -*- coding: utf-8 -*-\r\n\r\ndb = DAL('mysql://root:root@127.0.0.1/asimp',pool_size=1,check_reserved=['all'])\r\n\r\nresponse.generic_patterns = ['*'] if request.is_local else []\r\n\r\nfrom gluon.tools import Auth, Crud, Service, PluginManager, prettydate\r\nauth = Auth(db)\r\ncrud, service, plugins = Crud(db), Service(), PluginManager()\r\n\r\n## create all tables needed by auth if not custom tables\r\nauth.define_tables(username=False, signature=False)\r\n\r\n## configure email\r\nmail = auth.settings.mailer\r\nmail.settings.server = 'logging' or 'smtp.gmail.com:587'\r\nmail.settings.sender = 'you@gmail.com'\r\nmail.settings.login = 'username:password'\r\n\r\n## configure auth policy\r\nauth.settings.registration_requires_verification = False\r\nauth.settings.registration_requires_approval = False\r\nauth.settings.reset_password_requires_verification = True"
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/root/git/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/root/git/web2py/applications/IntellegentPlatformMaster/models/db.py", line 12, in <module>\n    auth.define_tables(username=False, signature=False)\n  File "/root/git/web2py/gluon/tools.py", line 2356, in define_tables\n    format=\'%(first_name)s %(last_name)s (%(id)s)\'))\n  File "/usr/lib/python2.7/site-packages/pyDAL-15.12-py2.7.egg/pydal/base.py", line 834, in define_table\n    table = self.lazy_define_table(tablename,*fields,**args)\n  File "/usr/lib/python2.7/site-packages/pyDAL-15.12-py2.7.egg/pydal/base.py", line 873, in lazy_define_table\n    polymodel=polymodel)\n  File "/usr/lib/python2.7/site-packages/pyDAL-15.12-py2.7.egg/pydal/adapters/base.py", line 482, in create_table\n    self.create_sequence_and_triggers(query, table)\n  File "/usr/lib/python2.7/site-packages/pyDAL-15.12-py2.7.egg/pydal/adapters/base.py", line 1366, in create_sequence_and_triggers\n    self.execute(query)\n  File "/usr/lib/python2.7/site-packages/pyDAL-15.12-py2.7.egg/pydal/adapters/base.py", line 1385, in execute\n    return self.log_execute(*a, **b)\n  File "/usr/lib/python2.7/site-packages/pyDAL-15.12-py2.7.egg/pydal/adapters/base.py", line 1379, in log_execute\n    ret = self.get_cursor().execute(command, *a[1:], **b)\n  File "/usr/lib64/python2.7/site-packages/MySQLdb/cursors.py", line 174, in execute\n    self.errorhandler(self, exc, value)\n  File "/usr/lib64/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler\n    raise errorclass, errorvalue\nOperationalError: (1050, "Table \'auth_user\' already exists")\n'
+p11
+s.

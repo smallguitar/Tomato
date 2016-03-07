@@ -1,0 +1,7 @@
+[python]
+*.pyc
+*.table
+*.py.swp
+build
+dist
+*.egg-info
